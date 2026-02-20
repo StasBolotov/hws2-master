@@ -1,20 +1,29 @@
-.input:focus {
+.inputWrapper {
+    display: flex;
+    flex-direction: column; /* чтобы span был над инпутом */
 }
 
 .input {
+    width: 372px;
+    height: 36px;
+    background: #FFFFFF;
+    border: 1px solid #D1D1D1;
+    border-radius: 5px;
+    outline: none;
+    padding: 0 12px;
 }
 
-.inputWrapper {
-}
-
-.superInput {
+.superInput:focus {
+    border-color: #0066CC;
 }
 
 .errorInput {
-}
-
-.errorInput:focus {
+    border: 1px solid #FF0000;
 }
 
 .error {
+    color: #FF0000;
+    font-size: 12px;
+    height: 18px; /* резервируем место, чтобы верстка не прыгала */
+    margin-bottom: 4px;
 }
