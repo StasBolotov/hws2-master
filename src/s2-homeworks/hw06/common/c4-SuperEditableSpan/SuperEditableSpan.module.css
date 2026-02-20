@@ -1,11 +1,28 @@
 .spanBlock {
+    display: inline-flex;
+    align-items: center;
+    min-height: 36px;
+}
+
+.spanContainer {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
 }
 
 .span {
+    font-size: 16px;
+    color: #000000;
+    border-bottom: 1px dashed #0066CC; /* подчеркивание как в дизайне */
+    padding-left: 5px;
 }
 
 .input {
+    width: 200px; /* или по дизайну */
 }
 
 .pen {
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
 }
