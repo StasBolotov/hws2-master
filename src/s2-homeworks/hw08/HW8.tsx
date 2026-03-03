@@ -31,30 +31,25 @@ const HW8 = () => {
     const [people, setPeople] = useState<UserType[]>(initialPeople)
     const [currentSort, setCurrentSort] = useState('')
 
-    const finalPeople = people.map((u: UserType) => <User key={u._id} u={u}/>)
+    const finalPeople = people.map((u: UserType) => <User key={u._id} u={u} />)
 
     const sortUp = () => {
-        setPeople(
-            homeWorkReducer(initialPeople, {type: 'sort', payload: 'up'})
-        ) // в алфавитном порядке a.name > b.name
+        setPeople(homeWorkReducer(initialPeople, { type: 'sort', payload: 'up' }))
         setCurrentSort('up')
     }
 
     const sortDown = () => {
-        setPeople(
-            homeWorkReducer(initialPeople, {type: 'sort', payload: 'down'})
-        ) // в обратном порядке a.name < b.name}
+        setPeople(homeWorkReducer(initialPeople, { type: 'sort', payload: 'down' }))
         setCurrentSort('down')
     }
+
     const check18 = () => {
-        setPeople(
-            homeWorkReducer(initialPeople, {type: 'check', payload: 18})
-        ) // совершеннолетние
+        setPeople(homeWorkReducer(initialPeople, { type: 'check', payload: 18 }))
         setCurrentSort('18')
     }
 
     return (
-        <div id={'hw3'}>
+        <div id={'hw8'}>
             <div className={s2.hwTitle}>Homework #8</div>
             <div className={s2.hw}>
                 <div className={s.container}>
@@ -89,7 +84,6 @@ const HW8 = () => {
                             <td className={s.ageCol}>Age</td>
                         </tr>
                         </thead>
-
                         <tbody>{finalPeople}</tbody>
                     </table>
                 </div>
