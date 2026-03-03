@@ -1,2 +1,6 @@
 .container {
+    display: flex;
+    gap: 40px; /* Расстояние между селектом и радиокнопками */
+    align-items: flex-start;
+    padding: 20px 0;
 }

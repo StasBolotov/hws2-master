@@ -1,8 +1,4 @@
-import React, {
-    SelectHTMLAttributes,
-    DetailedHTMLProps,
-    ChangeEvent,
-} from 'react'
+import React, { SelectHTMLAttributes, DetailedHTMLProps, ChangeEvent } from 'react'
 import s from './SuperSelect.module.css'
 
 type DefaultSelectPropsType = DetailedHTMLProps<
@@ -16,27 +12,27 @@ type SuperSelectPropsType = DefaultSelectPropsType & {
 }
 
 const SuperSelect: React.FC<SuperSelectPropsType> = ({
-    options,
-    className,
-    onChange,
-    onChangeOption,
-    ...restProps
-}) => {
+                                                         options, className, onChange, onChangeOption, ...restProps
+                                                     }) => {
     const mappedOptions: any[] = options
         ? options.map((o) => (
-              <option
-                  id={'hw7-option-' + o.id}
-                  className={s.option}
-                  key={o.id}
-                  value={o.id}
-              >
-                  {o.value}
-              </option>
-          ))
-        : [] // map options with key
+            <option
+                id={'hw7-option-' + o.id}
+                className={s.option}
+                key={o.id}
+                value={o.id}
+            >
+                {o.value}
+            </option>
+        ))
+        : []
 
     const onChangeCallback = (e: ChangeEvent<HTMLSelectElement>) => {
-        // делают студенты
+        if (onChangeOption) {
+            // Передаем id выбранной опции вверх
+            onChangeOption(Number(e.currentTarget.value))
+        }
+        if (onChange) onChange(e)
     }
 
     const finalSelectClassName = s.select + (className ? ' ' + className : '')
@@ -45,6 +41,7 @@ const SuperSelect: React.FC<SuperSelectPropsType> = ({
         <select
             className={finalSelectClassName}
             onChange={onChangeCallback}
+            value={restProps.value} // Обязательно для контролируемого компонента
             {...restProps}
         >
             {mappedOptions}
