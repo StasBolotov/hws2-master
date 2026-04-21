@@ -1,14 +1,29 @@
 .buttonsContainer {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
 }
 
 .clock {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
 }
 
 .watch {
+    font-size: 20px;
+    cursor: pointer;
+    margin-bottom: 5px;
 }
 
 .watch strong {
+    font-size: 32px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .more {
+    font-size: 16px;
+    color: #000;
+    min-height: 24px; /* Чтобы верстка не прыгала при скрытии/показе */
 }
