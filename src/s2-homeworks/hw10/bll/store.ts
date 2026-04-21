@@ -1,17 +1,19 @@
-import { loadingReducer } from './loadingReducer'
 import { combineReducers, legacy_createStore } from 'redux'
-import { themeReducer } from '../../hw12/bll/themeReducer'
+import { loadingReducer } from './loadingReducer'
 
-const reducers = combineReducers({
-    loading: loadingReducer, // hw10
-    theme: themeReducer, // hw12
+const rootReducer = combineReducers({
+    loading: loadingReducer, // название поля 'loading' важно для useSelector в HW10.tsx
 })
 
-const store = legacy_createStore(reducers)
+const store = legacy_createStore(rootReducer)
 
 export default store
 
-export type AppStoreType = ReturnType<typeof reducers>
+// Автоматическое определение типа всего состояния (AppStoreType)
+export type AppStoreType = ReturnType<typeof rootReducer>
+
+// Тип для диспатча (пригодится для типизации хуков в будущем)
+export type AppDispatch = typeof store.dispatch
 
 // @ts-ignore
-window.store = store // for dev // для того чтобы автотесты видели состояние данных
+window.store = store // для возможности обращения к стору в консоли браузера
